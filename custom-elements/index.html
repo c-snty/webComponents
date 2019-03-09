@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom element Built In</title>
+</head>
+<body>
+	
+	<button is="mi-boton-extendido">Mi boton extendido</button>
+	<div id="container"></div>
+
+	<script>
+		class miBotonExtendido extends HTMLButtonElement{
+			constructor(){
+				super();
+				this.addEventListener('click', (e) =>{
+					let num1 = 5;
+					let num2 = 10;
+					let res = num1 + num2;
+					console.log(res);
+					console.log(this.innerHTML);
+					//alert(res);
+				});
+			}
+		}
+		class miBotonExtendido2 extends HTMLButtonElement{
+			constructor(){
+				super();
+				this.addEventListener('click', (e) =>{
+					let num1 = 5;
+					let num2 = 10;
+					let res = num1 + num2;
+					console.log(res);
+					console.log(this.innerHTML);
+					//alert(res);
+				});
+			}
+		}
+		customElements.define('mi-boton-extendido', miBotonExtendido, {extends: 'button'});
+
+
+		const misBotonExtendido = document.createElement('button', {is:'mi-boton-extendido'});
+		 misBotonExtendido.textContent="MI boton con script";
+		 document.body.appendChild(misBotonExtendido);
+
+		 const misBotonExtendido2 = document.createElement('button', {is: 'mis-boton-extendido'});
+		 misBotonExtendido2.textContent="hola boton 2 en un container";
+		 document.querySelector("#container").appendChild(misBotonExtendido2);
+		 customElements.define('mis-boton-extendido',miBotonExtendido2, {extends: 'button'});
+	</script>
+</body>
+</html>

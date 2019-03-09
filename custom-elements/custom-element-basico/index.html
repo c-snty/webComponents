@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Elements Basico</title>
+	<style>
+	body{
+		padding: 20px;
+	}
+		mi-boton{
+			padding: 10px;
+			border: 3px solid black;
+			box-shadow: 2px 2px 4px gray;
+		}
+		mi-boton-2{
+			padding: 10px;
+			border: 3px solid blue;
+			box-shadow: 2px 2px 4px gray;
+		}
+	</style>
+</head>
+<body>
+	<mi-boton>Soy un mi boton</mi-boton>
+	<mi-boton>Soy otro mi boton</mi-boton>
+	<mi-boton-2>Sooy boton 2</mi-boton-2>
+	
+
+	<script>
+		class MiBoton extends HTMLElement{
+			constructor(){
+				super(); //siempre usar para heredar de la clase padre
+				this.addEventListener('click', (event) =>{
+					console.log(this.innerHTML);
+				})
+			}
+		}
+		//definimos el elemento del dom
+		customElements.define('mi-boton', MiBoton)
+
+		customElements.define('mi-boton-2', class extends HTMLElement {
+			constructor(){
+				super();
+				this.addEventListener('click', (event) =>{
+					let num1 = 5;
+					let num2 = 10;
+					let res = num1 + num2;
+					console.log(`Resultado de la suma = ${res}`);
+					alert(res);
+				})
+			}
+		})
+	</script>
+</body>
+</html>

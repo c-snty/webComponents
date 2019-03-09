@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Life cycle methos</title>
+	<style>
+	body{
+		padding: 20px;
+	}
+		mi-mensaje{
+			padding: 10px;
+			border: 4px solid blue;
+		}
+	</style>
+</head>
+<body>
+
+	<mi-mensaje casi-visible msj="Hola 1"></mi-mensaje>
+	<mi-mensaje  msj="Hola 1"></mi-mensaje>
+
+	<script>
+		class MiMensaje extends HTMLElement{
+			//agregas eventos y para meter una platilla al custom element
+			constructor(){
+				super();
+				console.log("Cuando el elemento es creado");
+			}
+			//permite observar que atributos hay
+			static get observedAttributes(){
+				return['msj', 'casi-visible'];
+			}
+
+			attributeChangedCallback(attrName, oldValue, newValue){
+				if(attrName === 'msj'){
+					this.innerHTML= newValue;
+				}
+				if(attrName === 'casi-visible'){
+					this.setCasiVisible(newValue);
+				}
+				
+
+			}
+			setCasiVisible(value){
+					if(this.casiVisible){
+						this.style.opacity = 0.5;
+					}else
+						this.style.opacity = 1;
+					
+				}
+			//puede pedir peticiones de un servicio
+			connectedCallback(){
+				console.log("Cuando El elemento es insertado en el DOM");
+			}
+			disconnectedCallback(){
+				console.log("Cuando el elemento es eliminado del DOM");
+			}
+			get msj(){
+				return this.getAttribute('msj');
+			}
+			set msj(value){
+				this.setAttribute('msj', value);
+			}
+
+			get casiVisible(){
+				// has regresa un boolean true o false
+				return this.hasAttribute('casi-visible');
+			}
+			set casiVisible(value){
+				if (value) {
+					this.setAttribute('casi-visible', true);
+					return;
+				}
+				this.removeAttribute('casi-visible');
+			}
+			
+		}
+			console.log(MiMensaje.observedAttributes);
+			customElements.define('mi-mensaje', MiMensaje);
+		
+	</script>
+	
+</body>
+</html>

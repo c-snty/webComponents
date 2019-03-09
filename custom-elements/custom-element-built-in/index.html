@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom element Built In</title>
+</head>
+<body>
+	
+	<mi-boton-extendido>Mi boton extendido</mi-boton-extendido>
+	
+
+	<script>
+		class miBotonExtendido extends HTMLButtonElement{
+			constructor(){
+				super();
+				this.addEventListener('click', (e) =>{
+					console.log(this.innerHTML);
+				});
+			}
+		}
+	</script>
+</body>
+</html>

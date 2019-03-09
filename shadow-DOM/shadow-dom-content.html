@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WEB Components: Shadow DOM content</title>
+</head>
+<body>
+	<style>
+		
+	</style>
+	<div id="test">
+		<p>Light DOM</p>
+		<span>Span sin estilos</span>
+	</div>
+	<script>
+		(function(){
+			const div = document.getElementById("test");
+			//para que javascript no puede usarlo (open / close)
+			const divRoot = div.attachShadow({mode: 'open'});
+			divRoot.innerHTML = `<style>
+			span {color: red;}
+			</style>
+			<span>Shadow </span>
+			<slot></slot>`;
+		})();
+
+		(function(){
+			alert('Hola alert');
+		})();
+	</script>
+	
+</body>
+</html>
