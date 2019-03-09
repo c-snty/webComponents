@@ -1,0 +1,82 @@
+//importar variables
+@import './variables.scss';
+//definir variables 
+//$chico: 600px;
+
+body{
+    background: red;
+
+    @media only screen and (min-width: 601px) and (max-width: 800px){
+        background: lime;
+    }
+    @media only screen and (max-width: $chico){
+    
+        background: yellow;
+    }
+    @media only screen and (min-width: 801px) and (max-width: 1000px){
+    
+        background: purple;
+    }
+    @media only screen and (min-width: 1001px) {
+    
+        background: black;
+    }
+
+    header{
+        height: 70px;
+        background: navy;
+
+        @media only screen and (min-width: 601px) and (max-width: 800px){
+        &::before{
+        content: 'Ancho maximo de 800px';
+        font-size: 50px;
+        color: #fff;
+        }
+    }
+
+        @media only screen and (max-width: 600px){
+    
+        &::before{
+        content: 'Ancho maximo de 600px';
+        font-size: 30px;
+        color: #fff;
+                }
+        }
+        @media only screen and (min-width: 801px) and (max-width: 1000px){
+    
+    
+        &::before{
+        content: 'Ancho minimo de 801px';
+        font-size: 50px;
+        color: #fff;
+    }
+}
+    @media only screen and (min-width: 1001px){
+        &::before{
+            content: 'Ancho hasta 1001px';
+            font-size: 55px;
+            color: #fff;
+        }
+    }
+    
+
+}
+
+    main{
+        height: 500px;
+        width: 90%;
+        margin: 0 auto;
+        background: orange;
+        }
+
+    footer{
+        height: 80px;
+        background: lightblue;
+        }
+}
+
+
+
+
+
+

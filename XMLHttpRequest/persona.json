@@ -1,0 +1,14 @@
+{
+	"nombre": "Luis Santiago Rosario",
+	"edad": 24,
+	"email": "luis.santiago.rosario10@gmail.com",
+	"sexo": "H",
+	"fechaNacimiento": "1995-02-10",
+	"telefono": "87575768",
+	"color": "#ffffff",
+	"trabajo": {
+		"puesto": "Desarrollador",
+		"email": "lsantiagor@ids.com.mx",
+		"telefono": "5512345678"
+	}
+}

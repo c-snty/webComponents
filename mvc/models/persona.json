@@ -1,0 +1,14 @@
+{
+	"nombre": "Jaime Cervantes Velasco",
+	"edad": 31,
+	"email": "jaime.cervantes.ve@gmail.com",
+	"sexo": "O",
+	"fechaNacimiento": "1995-02-10",
+	"telefono": "2781092116",
+	"color": "#ffffff",
+	"trabajo": {
+		"puesto": "Desarrollador",
+		"email": "jaime.cervantes@sitdigital.team",
+		"telefono": "5512345678"
+	}
+}
